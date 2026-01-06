@@ -13,5 +13,6 @@ public class Operator {
         System.out.println("Hieu : "+ (a-b));
         System.out.println("Tich : "+ (a*b));
         System.out.println("Thuong : "+ ((float)a/b));
+
     }
 }
