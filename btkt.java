@@ -2,7 +2,14 @@ import java.util.Scanner;
 
 public class btkt {
 
-    // Bai 80: Tim vi tri phan tu duong dau tien
+    static boolean coSoDuong(int[] a, int n) {
+        for (int i = 0; i < n; i++) {
+            if (a[i] > 0) return true;
+        }
+        return false;
+    }
+
+    // Bai 80
     static int timViTriDuongDauTien(int[] a, int n) {
         for (int i = 0; i < n; i++) {
             if (a[i] > 0) {
@@ -12,7 +19,7 @@ public class btkt {
         return -1;
     }
 
-    // Bai 81: Tim vi tri phan tu duong be nhat
+    // Bai 81
     static int timViTriDuongBeNhat(int[] a, int n) {
         int viTri = -1;
         int minDuong = Integer.MAX_VALUE;
@@ -49,18 +56,19 @@ public class btkt {
 
             switch (chon) {
                 case 1:
-                    int vt1 = timViTriDuongDauTien(a, n);
-                    if (vt1 == -1)
-                        System.out.println("Khong co phan tu duong trong mang");
-                    else
+                    if (!coSoDuong(a, n)) {
+                        System.out.println("Mang khong co so duong!");
+                    } else {
+                        int vt1 = timViTriDuongDauTien(a, n);
                         System.out.println("Vi tri duong dau tien: " + vt1);
+                    }
                     break;
 
                 case 2:
-                    int vt2 = timViTriDuongBeNhat(a, n);
-                    if (vt2 == -1)
-                        System.out.println("Khong co phan tu duong trong mang");
-                    else {
+                    if (!coSoDuong(a, n)) {
+                        System.out.println("Mang khong co so duong!");
+                    } else {
+                        int vt2 = timViTriDuongBeNhat(a, n);
                         System.out.println("Vi tri duong be nhat: " + vt2);
                         System.out.println("Gia tri: " + a[vt2]);
                     }
